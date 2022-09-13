@@ -6,6 +6,7 @@ Link Heroku: https://katalog-hana.herokuapp.com
 
 -- Jawaban --
 1. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html;
+<img src="[https://your-image-url.type](https://user-images.githubusercontent.com/90792106/189834848-463802bd-42a9-4f0d-a91a-301f8b0f9d0b.png)" width="450" height="330">
 
 
 
