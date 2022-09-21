@@ -1,6 +1,8 @@
-### TUGAS 3 PBP
+# TUGAS 3 PBP
 
 **Hana Devi Aqila - 2106751556 - PBP-C**
+
+Link Heroku MyWatchList: https://katalog-hana.herokuapp.com/mywatchlist/
 
 1. Jelaskan perbedaan antara JSON, XML, dan HTML!
     JSON, XML, dan HTML adalah beberapa contoh dari format data dalam implementasi data delivery. JSON adalah JavaScript Object Notation, XML adalah eXtensible Markup Language, dan HTML adalah Hyper Text markup Language. Berikut adalah beberapa perbedaan di antara ketiganya:
@@ -103,13 +105,13 @@
 
     7. Deployment ke Heroku dilakukan dengan cara melakukan gti add, commit, push ke repository di github. Lalu membuat aplikasi baru di heroku dan membuat variabel secrets pada repository github. Kemudian di re-run agar aplikasinya berhasil terdeploy. 
 
-# SS POSTMAN
+## SS POSTMAN
 
-**HTML 
+**HTML**
 <img width="1440" alt="Screen Shot 2022-09-21 at 23 30 18" src="https://user-images.githubusercontent.com/90792106/191560527-d70a6407-9396-4525-8bec-0f2feac39e54.png">
 
-**XML 
+**XML**
 <img width="1440" alt="Screen Shot 2022-09-21 at 23 30 48" src="https://user-images.githubusercontent.com/90792106/191560548-179be2f7-0af7-4937-9715-c31afd508697.png">
 
-**JSON 
+**JSON**
 <img width="1440" alt="Screen Shot 2022-09-21 at 23 31 04" src="https://user-images.githubusercontent.com/90792106/191560569-46dc496f-e9db-41dd-ab29-5faad885184d.png">
