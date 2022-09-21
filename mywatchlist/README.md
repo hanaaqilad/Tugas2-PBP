@@ -108,11 +108,12 @@
 HTML 
 <img width="1440" alt="Screen Shot 2022-09-21 at 23 30 18" src="https://user-images.githubusercontent.com/90792106/191560527-d70a6407-9396-4525-8bec-0f2feac39e54.png">
 
-
+<img src="https://user-images.githubusercontent.com/90792106/191560527-d70a6407-9396-4525-8bec-0f2feac39e54.png" width="600" height="440">
 
 XML 
 <img width="1440" alt="Screen Shot 2022-09-21 at 23 30 48" src="https://user-images.githubusercontent.com/90792106/191560548-179be2f7-0af7-4937-9715-c31afd508697.png">
-
+<img src="https://user-images.githubusercontent.com/90792106/191560548-179be2f7-0af7-4937-9715-c31afd508697.png" width="600" height="440">
 
 JSON 
 <img width="1440" alt="Screen Shot 2022-09-21 at 23 31 04" src="https://user-images.githubusercontent.com/90792106/191560569-46dc496f-e9db-41dd-ab29-5faad885184d.png">
+<img src="https://user-images.githubusercontent.com/90792106/191560569-46dc496f-e9db-41dd-ab29-5faad885184d.png" width="600" height="440">
