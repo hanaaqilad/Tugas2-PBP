@@ -1,6 +1,6 @@
 *TUGAS 3 PBP*
 
-Hana Devi Aqila - 2106751556 - PBP-C
+*Hana Devi Aqila - 2106751556 - PBP-C*
 
 1. Jelaskan perbedaan antara JSON, XML, dan HTML!
     JSON, XML, dan HTML adalah beberapa contoh dari format data dalam implementasi data delivery. JSON adalah JavaScript Object Notation, XML adalah eXtensible Markup Language, dan HTML adalah Hyper Text markup Language. Berikut adalah beberapa perbedaan di antara ketiganya:
@@ -19,6 +19,7 @@ Hana Devi Aqila - 2106751556 - PBP-C
 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
     1. Membuat aplikasi baru bernama mywatchlist dengan cara mengeksekusi startapp di direktori Tugas2 di dalam virtual environment untuk membuat app baru pada Django. Syntaxnya berupa python manage.py startapp mywatchlist. Setelah itu, maka secara otomatis langsung terbuat folder baru bernama mywatchlist dengan isiannya berupa admin.py, apps.py, views.py, dll. 
     2. Membuat file urls.py di dalam folder mywatchlist, dengan isian sebagai berikut:
+    ```shell
     from django.urls import path
     from mywatchlist.views import show_mywatchlist                  // agar dapat melakukan routing terhadap fungsi-fungsi yang ada pada views
 
@@ -27,8 +28,9 @@ Hana Devi Aqila - 2106751556 - PBP-C
     urlpatterns = [
         path('', show_mywatchlist, name='show_mywatchlist'),        // menambahkan path agar bisa melakukan routing
     ]
-
+    ```
     Untuk sementara, views.py nya berisi:
+    ```shell
     from django.shortcuts import render
     from mywatchlist.models import MyWatchList
 
@@ -41,22 +43,24 @@ Hana Devi Aqila - 2106751556 - PBP-C
         }
 
         return render(request, "mywatchlist.html", context)
-
-    Selain itu juga menambahkan 
-    path('mywatchlist/', include('mywatchlist.urls')),
+    ```
+    Selain itu juga menambahkan:
+    `path('mywatchlist/', include('mywatchlist.urls')),`
     sebagai elemen pada list urlpatterns di urls.py yang ada di folder project_django
 
     3. Membuat class MyWatchList dengan 5 atribut yang sesuai pada file models.py yang ada di folder mywatchlist. Setiap field dari atribut tersebut juga disesuaikan dengan tipe field yang sesuai. Misal, release_date menggunakan DateField(). Classnya adalah sebagai berikut:
+    ```shell
     from django.db import models
-
     class MyWatchList(models.Model):
         watched = models.CharField(max_length=5)
         title = models.CharField(max_length=200)
         rating = models.IntegerField()
         release_date = models.DateField()
         review = models.TextField()
+    ```
     
     4. Pada folder mywatchlist, membuat folder baru bernama fixtures dengan file initial_mywatchlist_data.json di dalamnya. Kemudian membuat sebuah list dengan 10 elemen yang berisi data-data yang diinginkan. Setiap elemen tersebut didefinisikan terlebih dahulu model dan pk nya. Selanjutnya membuat dictionary fields dengan key berupa atribut yang telah ditentukan pada models.py tadi dan valuenya berupa data yang ingin dipakai. Contoh dari elemennya adalah sebagai berikut:
+    ```shell
      {
         "model": "mywatchlist.MyWatchList",
         "pk": 2,
@@ -68,12 +72,15 @@ Hana Devi Aqila - 2106751556 - PBP-C
             "review": "Filmnya sedih, Auroranya kasian"
         }
      }
+     ```
 
     5. Pada file views.py, menambahkan import agar dapat menampilkan response, yaitu: 
+    ```shell
     from django.http import HttpResponse
     from django.core import serializers
-    
+    ```
     Membuat 3 fungsi yaitu:
+    ```shell
     def show_xml(request):
         data = MyWatchList.objects.all()
         return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
@@ -81,18 +88,26 @@ Hana Devi Aqila - 2106751556 - PBP-C
     def show_json(request):
         data = MyWatchList.objects.all()
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-    
-    dan show_html() yang isinya sama dengan fungsi show_mywatchlist (karena show_mywatchlist tampilannya berupa html).
+    ```
+    dan `show_html()` yang isinya sama dengan fungsi `show_mywatchlist()` (karena show_mywatchlist tampilannya berupa html).
 
     6. Kemudian pada urls.py di folder mywatchlist, menambahkan import berupa:
-    from mywatchlist.views import show_json, show_xml, show_html
+    `from mywatchlist.views import show_json, show_xml, show_html`
 
     dan elemen pada urlpatterns berupa:
+    ```shell
     path('xml/', show_xml, name='show_xml'),
     path('json/', show_json, name='show_json'),
     path('html/', show_html, name='show_html')
+    ```
 
     7. Deployment ke Heroku dilakukan dengan cara melakukan gti add, commit, push ke repository di github. Lalu membuat aplikasi baru di heroku dan membuat variabel secrets pada repository github. Kemudian di re-run agar aplikasinya berhasil terdeploy. 
 
+*SS POSTMAN*
+HTML 
+
+XML
+
+JSON
 
 
