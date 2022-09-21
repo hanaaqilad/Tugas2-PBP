@@ -1,0 +1,113 @@
+[
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 1,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Harry Potter and The Prisoner of Azkaban",
+            "rating": 5,
+            "release_date": "2022-09-21",
+            "review": "Filmnya bagus, dementornya keren"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 2,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Nanti Kita Cerita Tentang Hari Ini",
+            "rating": 5,
+            "release_date": "2022-09-21",
+            "review": "Filmnya sedih, Auroranya kasian"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 3,
+        "fields": {
+            "watched": "Belum",
+            "title": "Inception",
+            "rating": 5,
+            "release_date": "2022-09-21",
+            "review": "Filmnya bikin mikir"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 4,
+        "fields": {
+            "watched": "Belum",
+            "title": "Mencuri Raden Saleh",
+            "rating": 4,
+            "release_date": "2022-09-21",
+            "review": "Filmnya viral, pada bilang baguss"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 5,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Harry Potter and The Order of The Phoenix",
+            "rating": 5,
+            "release_date": "2022-09-21",
+            "review": "Filmnya bagus dan seru"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 6,
+        "fields": {
+            "watched": "Sudah",
+            "title": "Titanic",
+            "rating": 3,
+            "release_date": "2022-09-21",
+            "review": "Durasinya terlalu lama bikin bosan"
+        }
+},
+{
+        "model": "mywatchlist.MyWatchList",
+        "pk": 7,
+        "fields": {
+            "watched": "Sudah",
+            "title": "The Boy in Striped Pajamas",
+            "rating": 5,
+            "release_date": "2022-09-21",
+            "review": "Filmnya kerenn"
+        }
+},
+{
+        "model": "mywatchlist.MyWatchList",
+        "pk": 8,
+        "fields": {
+            "watched": "Belum",
+            "title": "Interstellar",
+            "rating": 5,
+            "release_date": "2022-09-21",
+            "review": "Filmnya bagus"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 9,
+        "fields": {
+            "watched": "Belum",
+            "title": "Little Woman (KDrama)",
+            "rating": 4,
+            "release_date": "2022-09-21",
+            "review": "Drakornya bagus"
+        }
+},
+    {
+        "model": "mywatchlist.MyWatchList",
+        "pk": 10,
+        "fields": {
+            "watched": "Belum",
+            "title": "Miracle in Cell no. 7",
+            "rating": 4,
+            "release_date": "2022-09-21",
+            "review": "Katanya sedih"
+        }
+}
+
+]
