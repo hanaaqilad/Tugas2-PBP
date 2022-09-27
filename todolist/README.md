@@ -11,9 +11,11 @@
     Kita tetap bisa membuat elemen form tanpa generator seperti {{ form.as_table }}. Karena pada dokumentasi Django terkait forms saja di bagian contohnya tidak menggunakan {{ form.as_table }}, melainkan hanya {{ form }}. Saya juga sempat menggunakan {{ form }} saja saat membuat create_task.html dan formnya tetap berfungsi baik. Namun, tanpa generator, letaknya jadi cukup berantakan. Kemudian saat saya mencoba ikuti form register dengan {{ form.as_table }}, letaknya jadi lebih rapih. Cara membuat form adalah mulai dari membuat file forms.py yang berisi class formnya dan disesuaikan dengan models serta atribut apa saja yang ingin diminta inputannya melalui form. Lalu membuat fungsi untuk mengakses formnya pada file views.py (di sini contohnya adalah create_task()). Kemudian membuat htmlnya dengan menyisipkan code dengan tag ``<form> dan </form>`` di mana di dalamnya menggunakan {{ form }} atau generator lainnya. 
 
 Tidak pakai {{ form.as_table }}
+
 <img src="https://user-images.githubusercontent.com/90792106/192592314-ca7d354a-64e2-48f4-b5d9-875e633f6045.png" width="600" height="440">
 
 Pakai {{ form.as_table }}
+
 <img src="https://user-images.githubusercontent.com/90792106/192592315-62a3a05a-90cc-4477-8121-5ba0aeb857e7.png" width="600" height="440">
 
 3. Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
