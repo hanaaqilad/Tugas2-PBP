@@ -9,10 +9,11 @@
 2. Apakah kita dapat membuat elemen ``<form>`` secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat ``<form>`` secara manual.
     
     Kita tetap bisa membuat elemen form tanpa generator seperti {{ form.as_table }}. Karena pada dokumentasi Django terkait forms saja di bagian contohnya tidak menggunakan {{ form.as_table }}, melainkan hanya {{ form }}. Saya juga sempat menggunakan {{ form }} saja saat membuat create_task.html dan formnya tetap berfungsi baik. Namun, tanpa generator, letaknya jadi cukup berantakan. Kemudian saat saya mencoba ikuti form register dengan {{ form.as_table }}, letaknya jadi lebih rapih. Cara membuat form adalah mulai dari membuat file forms.py yang berisi class formnya dan disesuaikan dengan models serta atribut apa saja yang ingin diminta inputannya melalui form. Lalu membuat fungsi untuk mengakses formnya pada file views.py (di sini contohnya adalah create_task()). Kemudian membuat htmlnya dengan menyisipkan code dengan tag ``<form> dan </form>`` di mana di dalamnya menggunakan {{ form }} atau generator lainnya. 
+Tidak pakai {{ form.as_table }}
+<img src="https://user-images.githubusercontent.com/90792106/192592314-ca7d354a-64e2-48f4-b5d9-875e633f6045.png" width="600" height="440">
 
-<img width="1440" alt="Screen Shot 2022-09-27 at 21 50 36" src="https://user-images.githubusercontent.com/90792106/192592314-ca7d354a-64e2-48f4-b5d9-875e633f6045.png">
- <img width="1440" alt="Screen Shot 2022-09-27 at 21 51 05" src="https://user-images.githubusercontent.com/90792106/192592315-62a3a05a-90cc-4477-8121-5ba0aeb857e7.png">
-
+Pakai {{ form.as_table }}
+<img src="https://user-images.githubusercontent.com/90792106/192592315-62a3a05a-90cc-4477-8121-5ba0aeb857e7.png" width="600" height="440">
 
 3. Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
     
@@ -84,8 +85,6 @@
     ```
     8. Git add, commit, push lalu re-run di githubnya agar berhasil terdeploy
     9. Membuat 2 akun melalui register dan menambahkan masing-masing user sebanyak 3 task melalui page tambah task
-<img width="668" alt="Screen Shot 2022-09-28 at 00 11 27" src="https://user-images.githubusercontent.com/90792106/192592172-31c71bc6-5d6e-430d-8722-3494ef732c18.png">
-<img width="639" alt="Screen Shot 2022-09-28 at 00 11 06" src="https://user-images.githubusercontent.com/90792106/192592187-8a1db7d1-a67f-42a6-9023-37977a274f72.png">
 
-
-
+<img src="https://user-images.githubusercontent.com/90792106/192592172-31c71bc6-5d6e-430d-8722-3494ef732c18.png" width="600" height="440">
+<img src="https://user-images.githubusercontent.com/90792106/192592187-8a1db7d1-a67f-42a6-9023-37977a274f72.png" width="600" height="440">
