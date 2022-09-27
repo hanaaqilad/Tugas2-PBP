@@ -1,6 +1,8 @@
-*TUGAS 3 PBP*
+# TUGAS 3 PBP
 
-*Hana Devi Aqila - 2106751556 - PBP-C*
+**Hana Devi Aqila - 2106751556 - PBP-C**
+
+Link Heroku MyWatchList: https://katalog-hana.herokuapp.com/mywatchlist/
 
 1. Jelaskan perbedaan antara JSON, XML, dan HTML!
     JSON, XML, dan HTML adalah beberapa contoh dari format data dalam implementasi data delivery. JSON adalah JavaScript Object Notation, XML adalah eXtensible Markup Language, dan HTML adalah Hyper Text markup Language. Berikut adalah beberapa perbedaan di antara ketiganya:
@@ -17,7 +19,7 @@
     Data delivery adalah proses mengirimkan data dari satu stack ke stack lainnya dalam pengembangan suatu platform. Hal ini dilakukan agar kita dapat menampilkan data sesuai dengan yang direquest oleh client di platform yang kita buat. Format data delivery ini juga akan disesuaikan oleh request dari client, misal jika client request HTML page, maka proses data deliverynya akan me-return HTML file. Dengan data delivery, kita juga dapat menampilkan beberapa tipe file tanpa perlu menyimpannya di server sehingga dapat menghemat storage server. Contohnya adalah saat client hanya me-request data, returnnya akan XML atau JSON. File XML ini akan digenerate oleh program dan tidak disimpan dalam server.
 
 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-    1. Membuat aplikasi baru bernama mywatchlist dengan cara mengeksekusi startapp di direktori Tugas2 di dalam virtual environment untuk membuat app baru pada Django. Syntaxnya berupa python manage.py startapp mywatchlist. Setelah itu, maka secara otomatis langsung terbuat folder baru bernama mywatchlist dengan isiannya berupa admin.py, apps.py, views.py, dll. 
+    1. Membuat aplikasi baru bernama mywatchlist dengan cara mengeksekusi startapp di direktori Tugas2 di dalam virtual environment untuk membuat app baru pada Django. Syntaxnya berupa `python manage.py startapp mywatchlist`. Setelah itu, maka secara otomatis langsung terbuat folder baru bernama mywatchlist dengan isiannya berupa admin.py, apps.py, views.py, dll. 
     2. Membuat file urls.py di dalam folder mywatchlist, dengan isian sebagai berikut:
     ```shell
     from django.urls import path
@@ -103,11 +105,13 @@
 
     7. Deployment ke Heroku dilakukan dengan cara melakukan gti add, commit, push ke repository di github. Lalu membuat aplikasi baru di heroku dan membuat variabel secrets pada repository github. Kemudian di re-run agar aplikasinya berhasil terdeploy. 
 
-*SS POSTMAN*
-HTML 
+## SS POSTMAN
 
-XML
+**HTML**
+<img width="1440" alt="Screen Shot 2022-09-21 at 23 30 18" src="https://user-images.githubusercontent.com/90792106/191560527-d70a6407-9396-4525-8bec-0f2feac39e54.png">
 
-JSON
+**XML**
+<img width="1440" alt="Screen Shot 2022-09-21 at 23 30 48" src="https://user-images.githubusercontent.com/90792106/191560548-179be2f7-0af7-4937-9715-c31afd508697.png">
 
-
+**JSON**
+<img width="1440" alt="Screen Shot 2022-09-21 at 23 31 04" src="https://user-images.githubusercontent.com/90792106/191560569-46dc496f-e9db-41dd-ab29-5faad885184d.png">
