@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+    
+  <style>
+    table, tr, td, th{
+      border: 1px solid rgb(8, 19, 101);
+      border-collapse: collapse;
+      padding-inline: 20px;
+      padding-block: 10px;
+      color:rgb(23, 112, 171);
+    } h3, p {
+      color:rgb(10, 43, 120);
+    } 
+  </style>
+
+  <h2 style="color:rgb(10, 43, 120);font-family:courier;">Tugas 4 Assignment PBP/PBD</h2>
+
+  <h3>Username Pengguna :  {{username}} </h3> 
+
+  <table>
+    <tr>
+      <th style="color:rgb(10, 43, 120);">Tanggal Pembuatan</th>
+      <th style="color:rgb(10, 43, 120);">Judul</th>
+      <th style="color:rgb(10, 43, 120);">Deskripsi</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for task in list_task %}
+    <tr>
+        <th>{{task.date}}</th>
+        <th>{{task.title}}</th>
+        <th>{{task.description}}</th>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+          <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}  
+
+  <button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:create_task' %}">Tambah Task</a></button>
+  <button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+ {% endblock content %}
