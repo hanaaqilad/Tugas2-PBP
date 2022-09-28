@@ -23,6 +23,9 @@
       <th style="color:rgb(10, 43, 120);">Tanggal Pembuatan</th>
       <th style="color:rgb(10, 43, 120);">Judul</th>
       <th style="color:rgb(10, 43, 120);">Deskripsi</th>
+      <th style="color:rgb(10, 43, 120);">Status Finish</th>
+      <th style="color:rgb(10, 43, 120);">Ubah Status</th>
+      <th style="color:rgb(10, 43, 120);">Delete Task</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
     {% for task in list_task %}
@@ -30,6 +33,14 @@
         <th>{{task.date}}</th>
         <th>{{task.title}}</th>
         <th>{{task.description}}</th>
+        <!-- Liquid tags -->
+        {% if task.is_finished == True %}
+          <th>Selesai</th>
+        {% elif task.is_finished == False %}
+          <th>Belum Selesai</th>
+        {% endif %}
+        <th><button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:update_status' task.id %}">Ubah Status</a></button></th>
+        <th><button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:delete_task' task.id %}">Hapus Task</a></button></th>
     </tr>
     {% endfor %}
   </table>

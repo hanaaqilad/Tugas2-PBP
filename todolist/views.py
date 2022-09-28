@@ -18,7 +18,23 @@ def show_todolist(request):
         'list_task' : data_task,
         'username': request.user.username,
     }
+
     return render(request, "todolist.html", context)
+
+# UPDATE STATUS
+def update_status(request,id):
+    task = Task.objects.get(id=id)
+    task.is_finished = not task.is_finished
+    task.save()
+
+    return redirect('todolist:show_todolist')
+
+# DELETE TASK
+def delete_task(request,id):
+    task = Task.objects.get(id=id)
+    task.delete()
+
+    return redirect('todolist:show_todolist')
 
 # TAMBAH TASK
 def create_task(request):
