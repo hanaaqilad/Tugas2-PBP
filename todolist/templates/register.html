@@ -2,23 +2,50 @@
 
 {% block meta %}
 <title>Registrasi Akun</title>
+
+<style>
+
+    body {
+      background-color: rgb(134, 191, 211);
+      font-family: Verdana;
+      margin: 20px;
+      text-align: center;
+      align-items: center;
+    }
+
+    table, tr, td {
+      padding-block: 10px;
+      padding-inline: 5px;
+    } 
+
+    form {
+      padding: 10px;
+      text-align: left;
+    } 
+
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(17, 40, 60, 0.819);
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5%;
+    background-color: rgb(132, 160, 202);
+    }
+
+</style>  
+
 {% endblock meta %}
 
 {% block content %}  
 
-<style>
-    table, tr, td{
-      padding: 20px;
-      text-align: left;
-      font-family: courier;
-      color:rgb(17, 17, 104);
-    } 
-</style>
-
 <div class = "login">
     
-    <h1 style="color:rgb(10, 43, 120);font-family:courier;">Formulir Registrasi</h1>  
-
+    <div class="card text-center" style="width: 55rem;">
+        <div class="card-header">
+            <h1 class="text-center">Formulir Registrasi</h1>
+        </div>
+      
+    <div class="card-body">
         <form method="POST">  
             {% csrf_token %} 
             <table>  
@@ -30,13 +57,17 @@
             </table>  
         </form>
 
-    {% if messages %}  
-        <ul style="color:rgb(10, 43, 120);font-family:courier;">   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+        <div class="text-center">
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                    {% endfor %}  
+            </ul>   
+        {% endif %}
+        </div>
+
+    </div>
 
 </div>  
 

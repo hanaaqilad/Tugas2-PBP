@@ -1,59 +1,97 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<style>
+
+  body {
+    background-color: rgb(134, 191, 211);
+    font-family: Verdana;
+    margin: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(17, 40, 60, 0.819);
+    width: 40%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5%;
+    background-color: rgb(132, 160, 202);
+  }
+  
+  .card:hover {
+    box-shadow: 0 10px 16px 0 rgb(65, 81, 104);
+  }
+  
+  * {
+  box-sizing: border-box;
+  }
+
+  .col {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  } 
+
+  .row {margin: 0 -5px;}
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+
+  @media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+{% endblock meta %}
+
  {% block content %}
-    
-  <style>
-    table, tr, td, th{
-      border: 1px solid rgb(8, 19, 101);
-      border-collapse: collapse;
-      padding-inline: 20px;
-      padding-block: 10px;
-      color:rgb(23, 112, 171);
-    } h3, p {
-      color:rgb(10, 43, 120);
-    } 
-  </style>
+  
+  <h1 style="text-align: center;">{{username}}'s To Do List</h1>
 
-  <h2 style="color:rgb(10, 43, 120);font-family:courier;">Tugas 4 Assignment PBP/PBD</h2>
-
-  <h3>Username Pengguna :  {{username}} </h3> 
-
-  <table>
-    <tr>
-      <th style="color:rgb(10, 43, 120);">Tanggal Pembuatan</th>
-      <th style="color:rgb(10, 43, 120);">Judul</th>
-      <th style="color:rgb(10, 43, 120);">Deskripsi</th>
-      <th style="color:rgb(10, 43, 120);">Status Finish</th>
-      <th style="color:rgb(10, 43, 120);">Ubah Status</th>
-      <th style="color:rgb(10, 43, 120);">Delete Task</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
+  <div class="row">
     {% for task in list_task %}
-    <tr>
-        <th>{{task.date}}</th>
-        <th>{{task.title}}</th>
-        <th>{{task.description}}</th>
-        <!-- Liquid tags -->
-        {% if task.is_finished == True %}
-          <th>Selesai</th>
-        {% elif task.is_finished == False %}
-          <th>Belum Selesai</th>
-        {% endif %}
-        <th><button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:update_status' task.id %}">Ubah Status</a></button></th>
-        <th><button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:delete_task' task.id %}">Hapus Task</a></button></th>
-    </tr>
+      <div class="col">
+        <div class="card text-center" style="width: 20rem;">
+          <div class="car-body">
+            <h2 class="card-header">{{task.title}}</h2>
+            <p class="card-text">Created on : {{task.date}}</p>
+            <p class="card-text">Description : {{task.description}}</p>
+            {% if task.is_finished == True %}
+              <p class="card-text">Status : Selesai</p>
+            {% elif task.is_finished == False %}
+              <p class="card-text">Status : Belum Selesai</p>
+            {% endif %}
+            <button><a class="btn btn-primary" href="{% url 'todolist:update_status' task.id %}" >Update Status</a></button>
+            <button><a class="btn btn-primary" href="{% url 'todolist:delete_task' task.id %}">Delete Status</a></button>
+            <br>
+            </div>
+        </div>
+      </div>
     {% endfor %}
-  </table>
+  </div>
+  
+
+
+  <button class="btn btn-primary"><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
+  <button class="btn btn-primary"><a href="{% url 'todolist:logout' %}">Logout</a></button>
 
   {% if messages %}
   <ul>
       {% for message in messages %}
-          <li>{{ message }}</li>
+          <p>{{ message }}</p>
       {% endfor %}
   </ul>
   {% endif %}  
 
-  <button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:create_task' %}">Tambah Task</a></button>
-  <button style="margin-block: 20px; font-family: courier; font-size: 14px; padding: 9px;"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+  
 
  {% endblock content %}

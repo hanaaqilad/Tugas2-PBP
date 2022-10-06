@@ -1,9 +1,7 @@
-# TUGAS 4 PBP
-
-## Hana Devi Aqila - 2106751556 - PBP-C
-
+## LINK APLIKASI
 Link Heroku: https://katalog-hana.herokuapp.com/todolist/
 
+## TUGAS 4 PBP
 1. Apa kegunaan {% csrf_token %} pada elemen ``<form>`` ? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen ``<form>`` ?
 
     csrf adalah singkatan dari Cross Site Request Forgery, merupakan suatu serangan yang umum terjadi pada web-app dan dapat merugikan user serta membahayakan web-app tersebut. Kegunaan dari {% csrf_token %} adalah untuk menghindari serangan tersebut. Cara kerja dari {% csrf_token %} adalah dengan menghasilkan token pada server dan akan selalu mengecek token tersebut setiap ada request yang masuk. Jika token tersebut tidak ditemukan, maka requestnya tidak akan dijalankan. Token tersebut unique, secret, dan unpredictable sehingga berbeda-beda setiap user. Jika {% csrf_token %} tidak digunakan, maka tidak ada token yang perlu dicek dan setiap request yang masuk bisa dijalankan tanpa dicek apakah request tersebut berupa serangan atau tidak. Dengan begitu, attacker akan mudah menyerang web dan user tersebut dengan mengubah dan mengirim request tanpa sepengetahuan dan persetujuan user yang sebenarnya. 
@@ -93,3 +91,59 @@ Pakai {{ form.as_table }}
 
 <img src="https://user-images.githubusercontent.com/90792106/192592172-31c71bc6-5d6e-430d-8722-3494ef732c18.png" width="600" height="440">
 <img src="https://user-images.githubusercontent.com/90792106/192592187-8a1db7d1-a67f-42a6-9023-37977a274f72.png" width="600" height="440">
+
+## TUGAS 5 PBP
+1. Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+    - Inline CSS adalah cara penulisan CSS dengan cara menuliskan CSS propertiesnya secara langsung di body section elemennya. Style attributenya ditulis di dalam tag HTMLnya. 
+    Kelebihan:
+        - Prioritasnya paling utama. Dimana prioritas jika terdapat lebih dari satu styling, maka urutan prioritasnya adalah inline, external dan internal, lalu browser default. 
+        - Sangat efektif untuk menguji style pada satu elemen.
+        - Dapat digunakan untuk memperbaiki kode dengan cepat serta load websitenya juga akan lebih cepat.
+    Kekurangan:
+        - Kurang efisien karena hanya bisa merubah style pada satu elemen saja. 
+
+    - Internal CSS adalah cara penulisan CSS dengan cara menuliskannya pada file HTML yang terkait. Cara penulisan ini bisa digunakan ketika hanya ingin styling suatu HTML secara terpisah atau unik. Caranya dengan menuliskan stylingnya di antara tag `<style>` dan `</style>` di bagian atas file HTML yang ingin di-styling.
+    Kelebihan:
+        - Efektif digunakan jika hanya ingin merubah style pada satu halaman saja. 
+        - Tidak perlu mengupload file apapun karena CSS dan HTMLnya berada dalam satu file yang sama.
+        - Class dan ID dapat digunakan oleh internal stylesheet.
+    Kekurangan:
+        - Kurang efisien jika ingin melakukan styling sekaligus terhadap beberapa halaman atau bahkan seluruh halaman. 
+        - Memperlambat performa website. 
+
+    - External CSS adalah cara penulisan CSS dengan cara menuliskannya pada file terpisah dari HTMLnya. Misalnya membuat static files berupa `style.css`. Lalu, styling pada file tersebut dapat dihubungkan dengan menyisipkan nama file tersebut di dalam tag `<link>`. 
+    Kelebihan:
+        - Memperkecil size file html dan penulisan htmlnya juga jadi lebih rapih.  
+        - Loading website lebih cepat.
+        - Dapat digunakan untuk styling beberapa halaman sekaligus.
+    Kekurangan:
+        - Jika file CSS nya gagal dipanggil karena koneksi yang buruk maka halaman HTMLnya bisa berantakan.
+
+2. Jelaskan tag HTML5 yang kamu ketahui.
+    - `<!DOCTYPE>` : untuk menentukan tipe dokumen
+    - `<html>`   : untuk membuat sebuah dokumen HTML
+    - `<title>`	: untuk membuat judul dari sebuah halaman
+    - `<body>`	: untuk membuat tubuh dari sebuah halaman
+    - `<h1> to <h6>`	: untuk membuat heading
+    - `<p>`	: untuk membuat paragraf
+    - `<br>`	: untuk memasukkan satu baris putus
+    - `<!--...-->` : untuk membuat komentar
+    - `<html>` : Tag untuk membuat dokumen HTML
+    - `<a>`	: untuk membuat hyperlink
+    - `<link>`	: untuk menghubungkan suatu dokumen dengan htmlnya
+    - `<table>`	: untuk membuat tabel
+    - `<th>`	: untuk membuat sebuah sel header tabel
+    - `<tr>`	: untuk membuat baris dalam sebuah tabel
+    - `<td>`	: untuk membuat sel dalam sebuah tabel
+    - `<style>` : untuk membuat informasi style untuk dokumen
+    - `<div>`	 : untuk membuat sebuah bagian dalam dokumen
+    - `<form>` : untuk membuat form untuk meminta input dari user
+    - `<input>` : untuk menunjukkan sebuah inputan berdasarkan tipe
+ 
+3. Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+    - Element selector : cara menggunakan element selector adalah dengan memanfaatkan tag html sebagai selector untuk mengubah properti yang ada pada tag itu sendiri. Misalnya h1, p, h2, h3, dst. Contohnya `h1 {...}`
+    - ID selector : cara menggunakan ID selector adalah dengan menambahkan beberapa ID pada tag html dan juga menambahkan ID selector pada file CSS maupun internal CSS dengan penulisan `#namaID {...}`
+    - Class selector : cara menggunakan class selector adalah dengan menambahkan beberapa class pada tag html dan juga menambahkan class selector pada file CSS maupun internal CSS dengan penulisan `.namaClass {...}`
+    
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+    Menjalankan virtual environment pada direktori tugas pbp, kemudian membuka foldernya dan melakukan kustomisasi tampilan html dengan mencari referensi dari website bootstrap. Mengganti penggunaan tabel dengan card untuk halaman utama todolist serta menambahkan efek shadow pada cardnya jika sedang dihover. Lalu membuat 4 page tersebut responsive dengan menggunakan bootstrap. 

@@ -1,24 +1,46 @@
 {% extends 'base.html' %}
 
 {% block meta %}
+
 <title>Tambah Task</title>
+
+<style>
+
+    body {
+      background-color: rgb(134, 191, 211);
+      font-family: Verdana;
+      margin: 20px;
+      text-align: center;
+      align-items: center;
+    }
+
+    form {
+      padding: 10px;
+      text-align: left;
+    } 
+
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(17, 40, 60, 0.819);
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5%;
+    background-color: rgb(132, 160, 202);
+    }
+
+</style>  
 {% endblock meta %}
 
 {% block content %}  
 
-<style>
-    form {
-      padding: 10px;
-      text-align: left;
-      font-family: courier;
-      color:rgb(17, 17, 104);
-    } 
-</style>
-
 <div class = "login">
     
-    <h1 style="color:rgb(10, 43, 120);font-family:courier;">Tambah Task</h1>  
-
+    <div class="card text-center" style="width: 30rem;">
+        <div class="card-header">
+            <h1 class="text-center">Tambah Task</h1>  
+        </div>
+    
+    <div class="card-body">
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}       
             <table> 
@@ -30,13 +52,16 @@
             </table> 
         </form>
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+        <div class="text-center">
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                    {% endfor %}  
+            </ul>   
+        {% endif %}
+        </div>
+    </div>
 
 </div>  
 
