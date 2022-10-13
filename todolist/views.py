@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
@@ -7,10 +8,11 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .models import Task
 from .forms import TaskForm
+from django.http import HttpResponse
+from django.core import serializers 
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
-
 # SHOW TODOLIST
 def show_todolist(request):
     data_task = Task.objects.filter(user=request.user)
@@ -85,3 +87,17 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('todolist:login')
+
+# AJAX GET
+@login_required(login_url='/todolist/login/')
+def ajax_get(request):
+    tasks = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', tasks), content_type='application/json')
+
+def ajax_post(request):
+    if request.method == "POST":
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        new_task = Task(user=request.user, title=title, description=description, date=datetime.now())
+        new_task.save()
+    return HttpResponse()

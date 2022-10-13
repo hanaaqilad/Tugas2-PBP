@@ -43,7 +43,7 @@
   } 
 
   @media screen and (max-width: 600px) {
-  .column {
+  .column, .row {
     width: 100%;
     display: block;
     margin-bottom: 20px;
@@ -51,14 +51,22 @@
 }
 
 </style>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+
 {% endblock meta %}
+
 
  {% block content %}
   
   <h1 style="text-align: center;">{{username}}'s To Do List</h1>
 
-  <div class="row">
-    {% for task in list_task %}
+  <div class="row" id="task">
+    <!-- {% for task in list_task %}
       <div class="col">
         <div class="card text-center" style="width: 20rem;">
           <div class="car-body">
@@ -76,13 +84,134 @@
             </div>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %} -->
   </div>
-  
 
+  <script>
+    $('.modal').hide();
+    
+    async function getTodolist() {
+      return fetch("{% url 'todolist:ajax_get' %}").then((res) => res.json())
+      .then(todolist => {
+        return todolist;
+      })
+      .catch(error => {
+        console.error('ERROR:',error);
+      })
+    }
 
+    async function refreshTodolist() {
+        document.getElementById("task").innerHTML = ""
+        const todolist = await getTodolist()
+        let htmlString = ``
+        todolist.forEach((item) => {
+          let is_finished_content = item.fields.is_finished? 'Status : Selesai' : 'Status : Belum Selesai';
+          htmlString += `<div class="col">
+                  <div class="card text-center" style="width: 20rem;">
+                    <div class="car-body">
+                      <h2 class="card-header"> ${item.fields.title} </h2>
+                      <p class="card-text">Created on : ${item.fields.date}</p>
+                      <p class="card-text">Description : ${item.fields.description}</p>
+                      <p class="card-text"> ${is_finished_content} </p>
+                      <button><a class="btn btn-primary" href="update-status/${item.pk}">Update Status</a></button>
+                      <button><a class="btn btn-primary" href="delete-task/${item.pk}">Delete Task</a></button>
+                      <br>
+                      </div>
+                  </div>
+                </div>`
+        })
+        
+        document.getElementById("task").innerHTML = htmlString
+    }
+  refreshTodolist()
+  </script>
+
+  <button id="add-task" class="add-task">Add Task</button>
   <button class="btn btn-primary"><a href="{% url 'todolist:create_task' %}">Create Task</a></button>
   <button class="btn btn-primary"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+  
+  <!-- Modals -->
+  <div class="modal-dialog" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- <div class="modal-card-body" role="dialog"> -->
+      {% csrf_token %}
+      <h3 style=text-align:center>Add New Task</h3>
+      <div class="card-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <label>Title</label>
+        <input class="title" placeholder="title" required>
+      </div>
+      <div class="card-body">
+        <label>Description</label>
+        <input class="description" placeholder="description" required>
+      </div>
+      <h5><button class="add-task-modal" id="add-task-modal">Add Task</button></h5>
+    </div>
+  </div>
+
+  <!-- Hide show modal -->
+  <script>
+    $(document).ready(function(){
+      $(".add-task").click( function(){
+        $('.modal-dialog').modal('show');
+      })
+    })
+  </script>
+
+  <!-- Modal Add Task Button -->
+  <script>
+    $(document).ready(function(){
+      $('.add-task-modal').click( function(){
+      let title = $('.title').val();
+      let description = $('.description').val();
+      let CSRFtoken = $('input[name="csrfmiddlewaretoken"]').val();
+      $.post('/todolist/add/', {
+        title: title,
+        description: description,
+        csrfmiddlewaretoken: CSRFtoken
+      }, function(){
+        $('.modal-dialog').hide();
+        async function getTodolist() {
+            return fetch("{% url 'todolist:ajax_get' %}").then((res) => res.json())
+            .then(todolist => {
+              return todolist;
+            })
+            .catch(error => {
+              console.error('ERROR:',error);
+            })
+          }
+
+          async function refreshTodolist() {
+              document.getElementById("task").innerHTML = ""
+              const todolist = await getTodolist()
+              let htmlString = ``
+              todolist.forEach((item) => {
+                let is_finished_content = item.fields.is_finished? 'Status : Selesai' : 'Status : Belum Selesai';
+                htmlString += `<div class="col">
+                        <div class="card text-center" style="width: 20rem;">
+                          <div class="car-body">
+                            <h2 class="card-header"> ${item.fields.title} </h2>
+                            <p class="card-text">Created on : ${item.fields.date}</p>
+                            <p class="card-text">Description : ${item.fields.description}</p>
+                            <p class="card-text"> ${is_finished_content} </p>
+                            <button><a class="btn btn-primary" href="update-status/${item.pk}">Update Status</a></button>
+                            <button><a class="btn btn-primary" href="delete-task/${item.pk}">Delete Task</a></button>
+                            <br>
+                            </div>
+                        </div>
+                      </div>`
+              })
+              
+              document.getElementById("task").innerHTML = htmlString
+          }
+
+        refreshTodolist()
+      })
+    })
+  })
+</script>
 
   {% if messages %}
   <ul>
@@ -90,6 +219,7 @@
           <p>{{ message }}</p>
       {% endfor %}
   </ul>
+
   {% endif %}  
 
   
